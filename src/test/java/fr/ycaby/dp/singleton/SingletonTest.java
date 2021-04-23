@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class SingletonTest {
-    public static List values = new ArrayList();
+    public static List<String> values = new ArrayList<>();
     @Test
     public void testSingleton() throws InterruptedException {
         Thread threadFoo = new Thread(new ThreadFoo());
@@ -25,7 +25,6 @@ public class SingletonTest {
         @Override
         public void run() {
             Singleton singleton = Singleton.getInstance("FOO");
-            System.out.println(singleton.getValue());
             values.add(singleton.getValue());
         }
     }
@@ -33,7 +32,6 @@ public class SingletonTest {
         @Override
         public void run() {
             Singleton singleton = Singleton.getInstance("BAR");
-            System.out.println(singleton.getValue());
             values.add(singleton.getValue());
         }
     }
